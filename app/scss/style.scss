@@ -6,6 +6,13 @@
 
 
 .header {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    width: 100%;
     padding: 28px 0;
     background-color: #040B3C;
 
@@ -47,8 +54,6 @@
         @extend %images;
 
         @media(max-width: $sm) {
-            
-
             display: inline-block;
         }
     }
@@ -118,5 +123,195 @@
 
     &__accent {
         color: $accent;
+    }
+}
+
+.hero {
+    position: relative;
+
+    background-image: url("../images/hero-bg.png");
+    @extend %images;
+
+    &::before {
+        z-index: -1;
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        width: 100%;
+
+        background: linear-gradient(180.21deg, #000626 0.2%, #01042D 6.01%, #0A0C2C 8.56%, #00032B 13.44%, #02092F 18.04%, #020530 23.22%);
+    }
+
+    &__top {
+        margin-bottom: 200px;
+        padding-top: 16px;
+        color: $primary;
+        @media(max-width: $xl) {
+            margin-bottom: calc(80px + (200 - 80) * ((100vw - 320px) / (1200 - 320)));
+            padding-top: calc(36px + (16 - 36) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    &__img {
+        max-width: 770px;
+        width: 100%;
+        margin-bottom: 15px;
+
+        @media(max-width: $xl) {
+            max-width: calc(263px + (770 - 263) * ((100vw - 320px) / (1200 - 320)));
+            margin-bottom: calc(17px + (15 - 17) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    &__inner {
+        max-width: 500px;
+    }
+
+    &__title {
+        margin-bottom: 20px;
+
+        @extend %rubik-500;
+        font-size: 24px;
+        line-height: 1.2;
+
+        @media(max-width: $xl) {
+            margin-bottom: calc(14px + (20 - 14) * ((100vw - 320px) / (1200 - 320)));
+            font-size: calc(20px + (24 - 20) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    &__text {
+        margin-bottom: 55px;
+
+        @extend %rubik-300;
+        font-size: 24px;
+        line-height: 1.2;
+
+        @media(max-width: $xl) {
+            margin-bottom: calc(30px + (55 - 30) * ((100vw - 320px) / (1200 - 320)));
+            font-size: calc(20px + (24 - 20) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    &__datetime {
+        margin-bottom: 55px;
+
+        @extend %rubik-700;
+        font-size: 36px;
+        line-height: 1.2;
+
+        @media(max-width: $xl) {
+            margin-bottom: calc(30px + (55 - 30) * ((100vw - 320px) / (1200 - 320)));
+            font-size: calc(24px + (36 - 24) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    &__date {
+        margin-right: 24px;
+        padding-right: 27px;
+        border-right: 3px solid $accent;
+
+        @media(max-width: $xl) {
+            margin-right: calc(10px + (27 - 10) * ((100vw - 320px) / (1200 - 320)));
+            padding-right: calc(14px + (27 - 14) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    &__btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 310px;
+        width: 100%;
+        height: 63px;
+
+        @extend %rubik-500;
+        text-transform: uppercase;
+
+        border-radius: 8px;
+        background-color: $accent;
+
+        @media(max-width: $xl) {
+            max-width: calc(288px + (310 - 288) * ((100vw - 320px) / (1200 - 320)));
+            height: calc(49px + (63 - 49) * ((100vw - 320px) / (1200 - 320)));
+            font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+}
+
+.hero-info {
+    margin-bottom: 200px;
+    color: $primary;
+
+    @media(max-width: $xl) {
+        margin-bottom: calc(80px + (200 - 80) * ((100vw - 320px) / (1200 - 320)));
+    }
+
+    &__title {
+        margin-bottom: 80px;
+        @media(max-width: $xl) {
+            margin-bottom: calc(40px + (80 - 40) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    &__wrapper {
+        display: grid;
+        grid-template: repeat(2, 100px) / repeat(2, 1fr);
+        gap: 30px;
+
+        @media(max-width: $xl) {
+            gap: calc(12px + (30 - 12) * ((100vw - 320px) / (1200 - 320)));
+        }
+
+        @media(max-width: $sm) {
+            grid-template: repeat(4, 80px) / 1fr;
+        }
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+
+        border: 3px solid #333C72;
+        border-radius: 8px;
+
+        @media(max-width: $xl) {
+            padding: 0 calc(14px + (20 - 14) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    &__text {
+        position: relative;
+
+        padding-left: 33px;
+
+        @extend %rubik-700;
+        line-height: 1.2;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+
+            width: 24px;
+            height: 24px;
+
+            background-image: url("../images/check-square.svg");
+            @extend %images;
+        }
+
+        @media(max-width: $xl) {
+            padding-left: calc(30px + (33 - 30) * ((100vw - 320px) / (1200 - 320)));
+            font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    &__text-name {
+        @extend %rubik-300;
     }
 }

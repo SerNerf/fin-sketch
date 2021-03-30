@@ -14,11 +14,27 @@ body {
 }
 
 .main {
+  margin-top: 117px;
   flex-grow: 1;
+  @media(max-width: $xl) {
+    margin-top: calc(60.02px + (117 - 60.02) * ((100vw - 320px) / (1200 - 320)));
+  }
 }
 
 .container {
   max-width: 1200px;
   padding: 0 15px;
   margin: 0 auto;
+}
+
+.title {
+  @extend %rubik-700;
+  font-size: 36px;
+  line-height: 2;
+  color: $primary;
+  text-transform: uppercase;
+
+  @media(max-width: $xl) {
+    font-size: calc(24px + (36 - 24) * ((100vw - 320px) / (1200 - 320)));
+  }
 }
