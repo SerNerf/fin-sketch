@@ -18,7 +18,7 @@ body {
   flex-grow: 1;
 
   background: linear-gradient(180.21deg, #000626 0.2%, #01042D 6.01%, #0A0C2C 8.56%, #00032B 13.44%, #02092F 18.04%, #020530 23.22%);
-  
+
   @media(max-width: $xl) {
     margin-top: calc(60.02px + (117 - 60.02) * ((100vw - 320px) / (1200 - 320)));
   }
@@ -41,5 +41,23 @@ body {
 
   @media(max-width: $xl) {
     font-size: calc(24px + (36 - 24) * ((100vw - 320px) / (1200 - 320)));
+  }
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  @extend %rubik-500;
+  color: $primary;
+  text-transform: uppercase;
+
+  border-radius: 8px;
+  background-color: $accent;
+
+  @media(max-width: $xl) {
+    font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1200 - 320)));
   }
 }
