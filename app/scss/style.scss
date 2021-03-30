@@ -673,6 +673,100 @@
             }
         }
     }
+}
 
+.detail {
+    padding: 186px 0 155px;
 
+    background-image: url("../images/detail-bg.png");
+    @extend %images;
+
+    @media(max-width: $xl) {
+        padding: calc(75px + (186 - 75) * ((100vw - 320px) / (1200 - 320))) 0 calc(60px + (155 - 6) * ((100vw - 320px) / (1200 - 320)));
+    }
+
+    &__title {
+        z-index: 1;
+        position: relative;
+        margin-bottom: 70px;
+
+        &::before {
+            z-index: -1;
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -6px;
+
+            width: 75px;
+            height: 70px;
+
+            background-image: url("../images/detail-decor2.png");
+            @extend %images;
+        }
+
+        @media(max-width: $xl) {
+            margin-bottom: calc(63px + (70 - 63) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    &__wrapper {
+        position: relative;
+        padding: 60px 90px 60px 80px;
+
+        border-radius: 20px;
+        background-color: $primary;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: -250px;
+            right: 0;
+
+            width: 264px;
+            height: 389px;
+
+            background-image: url("../images/detail-decor1.png");
+            @extend %images;
+        }
+
+        @media(max-width: $xl) {
+            padding: calc(40px + (60 - 40) * ((100vw - 320px) / (1200 - 320))) calc(9px + (90 - 9) * ((100vw - 320px) / (1200 - 320))) calc(40px + (60 - 40) * ((100vw - 320px) / (1200 - 320))) calc(15px + (80 - 15) * ((100vw - 320px) / (1200 - 320)));
+        }
+
+        @media(max-width: $sm) {
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    &__text {
+        margin-bottom: 30px;
+        p {
+            &:not(:last-child) {
+                margin-bottom: 24px;
+            }
+        }
+
+        @media(max-width: $xl) {
+            margin-bottom: calc(20px + (30 - 20) * ((100vw - 320px) / (1200 - 320)));
+            font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1200 - 320)));
+            p {
+                &:not(:last-child) {
+                    margin-bottom: calc(12px + (24 - 12) * ((100vw - 320px) / (1200 - 320)));
+                }
+            }
+        }
+    }
+
+    &__btn {
+        max-width: 310px;
+        height: 63px;
+        @media(max-width: $xl) {
+            max-width: calc(254px + (310 - 254) * ((100vw - 320px) / (1200 - 320)));
+            font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    
 }
