@@ -463,8 +463,90 @@
             margin-bottom: 35px;
         }
     }
+}
 
-    
+.programme {
+    padding: 160px 0 200px;
 
+    @media(max-width: $xl) {
+        padding: calc(60px + (160 - 60) * ((100vw - 320px) / (1200 - 320))) 0 calc(30px + (200 - 30) * ((100vw - 320px) / (1200 - 320)));
+    }
 
+    &__title {
+        margin-bottom: 80px;
+
+        @media(max-width: $xl) {
+            margin-bottom: calc(40px + (80 - 40) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 30px;
+
+        @media(max-width: $xl) {
+            column-gap: calc(10px + (30 - 10) * ((100vw - 575px) / (1200 - 575)));
+        }
+
+        @media(max-width: $sm) {
+            grid-template: 1fr 1fr / 1fr;
+            gap: 16px 0;
+        }
+    }
+
+    &__aside {
+        padding: 78px 70px 78px 80px;
+
+        border-radius: 20px;
+        background-color: $primary;
+
+        @media(max-width: $xl) {
+            padding: calc(40px + (70 - 40) * ((100vw - 320px) / (1200 - 320))) calc(16px + (70 - 16) * ((100vw - 320px) / (1200 - 320))) calc(40px + (78 - 40) * ((100vw - 320px) / (1200 - 320))) calc(15px + (80 - 15) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    &__date {
+        margin-bottom: 40px;
+
+        @extend %rubik-700;
+        font-size: 24px;
+        color: $accent;
+        text-transform: uppercase;
+
+        @media(max-width: $xl) {
+            margin-bottom: calc(24px + (40 - 24) * ((100vw - 320px) / (1200 - 320)));
+            font-size: calc(20px + (24 - 20) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    &__item {
+        display: grid;
+        grid-template: auto auto / 58px 1fr;
+        gap: 8px 40px;
+        margin-bottom: 24px;
+
+        @media(max-width: $xl) {
+            grid-template: auto auto / calc(45px + (58 - 45) * ((100vw - 320px) / (1200 - 320))) 1fr;
+            gap: 8px calc(10px + (40 - 10) * ((100vw - 320px) / (1200 - 320)));
+            margin-bottom: calc(12px + (24 - 12) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    &__time,
+    &__name {
+        font-weight: 700;
+
+        @media(max-width: $xl) {
+            font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    &__text {
+        grid-column: 2 / 3;
+
+        @media(max-width: $xl) {
+            font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
 }
