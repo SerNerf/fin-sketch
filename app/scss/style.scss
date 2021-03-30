@@ -5,5 +5,118 @@
 
 
 
+.header {
+    padding: 28px 0;
+    background-color: #040B3C;
 
-@import "media";
+    @media(max-width: $xl) {
+        padding: calc(18px + (28 - 18) * ((100vw - 575px) / (1200 - 575))) 0;
+    }
+
+    @media(max-width: $sm) {
+        padding: calc(16px + (18 - 16) * ((100vw - 320px) / (1200 - 320))) 0 calc(8px + (18 - 8) * ((100vw - 320px) / (1200 - 320)));
+    }
+}
+
+.logo {
+    display: inline-block;
+    &__img {
+        max-width: 171px;
+        width: 100%;
+        @media(max-width: $xl) {
+          max-width: calc(101px + (171 - 101) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__btn {
+        position: absolute;
+        top: 19px;
+        right: 16px;
+
+        display: none;
+        width: 24px;
+        height: 24px;
+
+        background-image: url("../images/menu-btn.svg");
+        @extend %images;
+
+        @media(max-width: $sm) {
+            
+
+            display: inline-block;
+        }
+    }
+
+    & &__list {
+        display: flex;
+
+        @media(max-width: $sm) {
+            position: absolute;
+            top: calc(60.02px + (70.72 - 60.02) * ((100vw - 320px) / (575 - 320)));
+            left: 0;
+            
+            display: inline-block;
+            width: 100%;
+            padding: 35px 18px;
+
+            border-top: 1px solid #ffffff;
+            background-color: #040C3E;
+    
+            transition: transform 0.5s;
+
+            transform: translateY(-250px);
+    
+            &--active {
+                transform: translateY(0);
+            }
+        }
+    }
+
+    &__item {
+        &:not(:last-child) {
+            margin-right: 55px;
+            @media(max-width: $xl) {
+              margin-right: calc(16px + (55 - 16) * ((100vw - 575px) / (1200 - 575)));
+            }
+        }
+
+        &:last-child {
+            a {
+                color: $accent;
+                text-transform: uppercase;
+
+                border-bottom: 1px solid transparent;
+                &:hover {
+                    border-color: $accent;
+                }
+            }
+        }
+    }
+
+    &__link {
+        @extend %rubik-500;
+        font-size: 14px;
+        line-height: 1;
+        color: $primary;
+
+        transition: color 0.3s, border-color 0.3s;
+
+        &:hover {
+            color: $accent;
+        }
+
+        @media(max-width: $xl) {
+            font-size: calc(12px + (14 - 12) * ((100vw - 575px) / (1200 - 575)));
+        }
+    }
+
+    &__accent {
+        color: $accent;
+    }
+}
