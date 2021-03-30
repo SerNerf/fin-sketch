@@ -466,7 +466,7 @@
 }
 
 .programme {
-    padding: 160px 0 200px;
+    padding: 160px 0 100px;
 
     @media(max-width: $xl) {
         padding: calc(60px + (160 - 60) * ((100vw - 320px) / (1200 - 320))) 0 calc(30px + (200 - 30) * ((100vw - 320px) / (1200 - 320)));
@@ -549,4 +549,130 @@
             font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1200 - 320)));
         }
     }
+}
+
+.speakers {
+    padding: 100px 0 200px;
+
+    @media(max-width: $xl) {
+        padding: calc(30px + (100 - 30) * ((100vw - 320px) / (1200 - 320))) 0 calc(60px + (200 - 60) * ((100vw - 320px) / (1200 - 320)));
+    }
+
+    &__title {
+        margin-bottom: 80px;
+
+        @media(max-width: $xl) {
+            margin-bottom: calc(40px + (80 - 40) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    &__wrapper {
+        display: grid;
+        grid-template: repeat(4, 365px) / repeat(4, 1fr);
+        gap: 30px;
+
+        @media(max-width: $lg) {
+            grid-template: repeat(8, 365px) / repeat(2, 1fr);
+        }
+
+        @media(max-width: $sm) {
+            grid-template: 304px / 1fr;
+        }
+    }
+
+    &__article {
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 43px 30px 48px 40px;
+
+        border-radius: 20px;
+        background-color: $primary;
+
+        &:hover {
+            .speakers__description {
+                opacity: 1;
+            }
+        }
+
+        @media(max-width: $xl) {
+            padding: calc(32px + (43 - 32) * ((100vw - 320px) / (1200 - 320))) calc(56px + (30 - 56) * ((100vw - 320px) / (1200 - 320))) calc(32px + (48 - 32) * ((100vw - 320px) / (1200 - 320))) calc(50px + (40 - 50) * ((100vw - 320px) / (1200 - 320)));
+        }
+
+        @media(max-width: $sm) {
+            &:not(:last-child) {
+                display: none;
+            }
+        }
+    }
+
+    &__img {
+        align-self: center;
+        justify-self: flex-start;
+        display: inline-block;
+        width: 128px;
+        height: 128px;
+        margin-bottom: 30px;
+
+        @media(max-width: $xl) {
+            width: calc(95px + (128 - 95) * ((100vw - 951px) / (1200 - 951)));
+            height: calc(95px + (128 - 95) * ((100vw - 951px) / (1200 - 951)));
+            margin-bottom: calc(20px + (30 - 20) * ((100vw - 320px) / (1200 - 320)));
+        }
+
+        @media(max-width: $lg) {
+            width: 128px;
+            height: 128px;
+        }
+    }
+
+    &__name {
+        margin-bottom: 14px;
+        font-size: 24px;
+        font-weight: 700;
+        color: $black;
+
+        @media(max-width: $xl) {
+            margin-bottom: calc(8px + (14 - 8) * ((100vw - 320px) / (1200 - 320)));
+            font-size: calc(20px + (24 - 20) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    &__text {
+        @media(max-width: $xl) {
+            font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    &__description {
+        position: absolute;
+        top: -1.2px;
+        left: -1.2px;
+        right: -1.2px;
+        bottom: -1.2px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 43px 22px 48px 40px;
+
+        color: $primary;
+
+        border-radius: 20px;
+        background-color: #172575;
+
+        opacity: 0;
+
+        transition: opacity 0.3s;
+
+        p {
+            &:not(:last-child) {
+                margin-bottom: 14px;
+            }
+        }
+    }
+
+
 }
