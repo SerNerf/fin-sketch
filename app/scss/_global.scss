@@ -16,6 +16,9 @@ body {
 .main {
   margin-top: 117px;
   flex-grow: 1;
+
+  background: linear-gradient(180.21deg, #000626 0.2%, #01042D 6.01%, #0A0C2C 8.56%, #00032B 13.44%, #02092F 18.04%, #020530 23.22%);
+  
   @media(max-width: $xl) {
     margin-top: calc(60.02px + (117 - 60.02) * ((100vw - 320px) / (1200 - 320)));
   }
@@ -28,6 +31,8 @@ body {
 }
 
 .title {
+  max-width: 900px;
+
   @extend %rubik-700;
   font-size: 36px;
   line-height: 2;

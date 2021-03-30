@@ -132,6 +132,12 @@
     background-image: url("../images/hero-bg.png");
     @extend %images;
 
+    @media(max-width: $sm) {
+        background-image: url("../images/hero-bg-sm.png");
+        background-position: top;
+        background-size: contain;
+    }
+
     &::before {
         z-index: -1;
         content: "";
@@ -142,8 +148,6 @@
         left: 0;
 
         width: 100%;
-
-        background: linear-gradient(180.21deg, #000626 0.2%, #01042D 6.01%, #0A0C2C 8.56%, #00032B 13.44%, #02092F 18.04%, #020530 23.22%);
     }
 
     &__top {
@@ -244,12 +248,7 @@
 }
 
 .hero-info {
-    margin-bottom: 200px;
     color: $primary;
-
-    @media(max-width: $xl) {
-        margin-bottom: calc(80px + (200 - 80) * ((100vw - 320px) / (1200 - 320)));
-    }
 
     &__title {
         margin-bottom: 80px;
@@ -314,4 +313,87 @@
     &__text-name {
         @extend %rubik-300;
     }
+}
+
+.info {
+    padding: 200px 0 145px;
+
+    @media(max-width: $xl) {
+        padding: calc(80px + (200 - 80) * ((100vw - 320px) / (1200 - 320))) 0 calc(60px + (145 - 60) * ((100vw - 320px) / (1200 - 320)));
+    }
+
+    &__title {
+        margin-bottom: 65px;
+        @media(max-width: $xl) {
+            margin-bottom: calc(40px + (65 - 40) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    &__wrapper {
+        display: grid;
+        grid-template: repeat(2, 100px) / repeat(3, 1fr);
+        gap: 40px 5px;
+        color: $primary;
+
+        @media(max-width: $xl) {
+            row-gap: calc(18px + (40 - 18) * ((100vw - 320px) / (1200 - 320)));
+        }
+
+        @media(max-width: $lg) {
+            grid-template: repeat(3, 100px) / repeat(2, 1fr);
+        }
+
+        @media(max-width: $sm) {
+            grid-template: repeat(6, minmax(40px, auto)) / 1fr;
+            column-gap: 0;
+        }
+    }
+
+    &__item {
+        padding: 0 80px;
+
+        @extend %images;
+        background-position: left top;
+        background-size: 56px 56px;
+
+        @media(max-width: $xl) {
+            padding: 0 calc(0px + (80 - 0) * ((100vw - 320px) / (1200 - 320))) 0 calc(46px + (80 - 46) * ((100vw - 320px) / (1200 - 320)));
+
+            background-size: calc(36px + (56 - 36) * ((100vw - 320px) / (1200 - 320))) calc(38px + (56 - 38) * ((100vw - 320px) / (1200 - 320)));
+        }
+
+        &--1 {
+            background-image: url("../images/info-item1.svg");
+        }
+
+        &--2 {
+            background-image: url("../images/info-item2.svg");
+        }
+
+        &--3 {
+            padding-right: 0;
+            background-image: url("../images/info-item3.svg");
+        }
+
+        &--4 {
+            padding-right: 0;
+            background-image: url("../images/info-item4.svg");
+        }
+
+        &--5 {
+            background-image: url("../images/info-item5.svg");
+        }
+
+        &--6 {
+            padding-right: 0;
+            background-image: url("../images/info-item6.svg");
+        }
+    }
+
+    &__text {
+        @media(max-width: $xl) {
+            font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
 }
