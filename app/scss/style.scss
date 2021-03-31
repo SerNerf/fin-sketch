@@ -779,8 +779,16 @@
 .conferences {
     padding: 200px 0 100px;
 
+    @media(max-width: $xl) {
+        padding: calc(60px + (200 - 60) * ((100vw - 320px) / (1200 - 320))) 0 calc(80px + (100 - 80) * ((100vw - 320px) / (1200 - 320)));
+    }
+
     &__title {
         margin-bottom: 80px;
+
+        @media(max-width: $xl) {
+            margin-bottom: calc(40px + (80 - 40) * ((100vw - 320px) / (1200 - 320)));
+        }
     }
 
     &__block {
@@ -797,6 +805,10 @@
         font-size: 36px;
         font-weight: 700;
         color: $accent;
+
+        @media(max-width: $xl) {
+            margin-bottom: calc(20px + (40 - 20) * ((100vw - 320px) / (1200 - 320)));
+        }
     }
 
     &__slider {
@@ -807,15 +819,28 @@
         .slick-track {
             display: flex;
             gap: 30px;
+
+            @media(max-width: $sm) {
+                gap: 0;
+            }
         }
         .slick-slide {
             max-width: 370px;
             width: 100%;
+
+            @media(max-width: $xl) {
+                max-width: calc(320px + (370 - 320) * ((100vw - 320px) / (1200 - 320)));
+            }
+
+            @media(max-width: $sm) {
+                &:nth-child(n+6) {
+                    display: none !important;
+                }
+            }
         }
         .slick-arrow {
             position: absolute;
             top: -80px;
-            right: 500px;
 
             width: 48px;
             height: 48px;
@@ -826,16 +851,64 @@
             border-radius: 50%;
         }
         .slick-prev {
-            right: 600px;
+            right: calc(170px + (170 - 170) * ((100vw - 1200px) / (1200 - 1199)));
             
             background-image: url("../images/left-arrow.svg");
             @extend %images;
             background-size: auto;
+
+            @media(max-width: $xl) {
+                right: 170px;
+            }
         }
         .slick-next {
             background-image: url("../images/right-arrow.svg");
             @extend %images;
             background-size: auto;
+            right: calc(70px + (70 - 70) * ((100vw - 1200px) / (1200 - 1199)));
+
+            @media(max-width: $xl) {
+                right: 70px;
+            }
+        }
+        .slick-dots {
+            position: absolute;
+            bottom: -37px;
+            left: 0;
+            right: 0;
+
+            display: flex;
+            justify-content: center;
+
+            li {
+                font-size: 0;
+
+                &:not(:last-child) {
+                    margin-right: 15px;
+                }
+
+                &:nth-child(n+5) {
+                    display: none !important;
+                }
+            }
+
+            button {
+                color: #ffffff;
+                width: 12px;
+                height: 12px;
+                border-radius: 2px;
+                background-color: #C4C4C4;
+
+                transition: transform 0.3s, background-color 0.3s;
+            }
+
+            .slick-active {
+                button {
+                    background-color: $accent;
+                    transform: scale(1.4) rotateZ(35deg);
+                }
+            }
+
         }
     }
 
@@ -843,8 +916,19 @@
         max-width: 370px;
         width: 100%;
         height: 268px;
+        margin: 0 auto;
 
         background-color: #C4C4C4;
+
+        @media(max-width: $xl) {
+            max-width: calc(320px + (370 - 320) * ((100vw - 320px) / (1200 - 320)));
+        }
+
+        @media(max-width: $sm) {
+            &:nth-child(n+6) {
+                display: none !important;
+            }
+        }
     }
 
 }
