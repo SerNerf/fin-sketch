@@ -4,8 +4,10 @@ $(function(){
         $('.menu__list').toggleClass('menu__list--active')
     });
 
-    // $('.location__slider').slick({
-    //     arrows: false,
-    //   });
+    $('.conferences__slider').slick({
+        centerMode: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+    });
 
 });
