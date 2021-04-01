@@ -1267,3 +1267,78 @@
         font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1200 - 320)));
     }
 }
+
+.faqs {
+    padding: 100px 0 100px;
+
+    @media(max-width: $xl) {
+        padding: calc(40px + (100 - 40) * ((100vw - 320px) / (1200 - 320))) 0 calc(40px + (100 - 40) * ((100vw - 320px) / (1200 - 320)));
+    }
+
+    &__title {
+        margin-bottom: 80px;
+
+        @media(max-width: $xl) {
+            margin-bottom: calc(40px + (80 - 40) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    & &__list {
+        width: 100%;
+
+        color: $primary;
+
+        @media(max-width: $xl) {
+            font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    &__item {
+        position: relative;
+        padding: 32px 50px;
+
+        border-top: 1px solid #333C72;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+
+            transform: translateY(-50%);
+
+            width: 24px;
+            height: 24px;
+
+            background-image: url("../images/down-arrow.svg");
+            @extend %images;
+            background-size: auto;
+        }
+
+        &:last-child {
+            border-bottom: 1px solid #333C72;
+            font-weight: 700;
+            &::before {
+               top: 35px;
+               transform: rotateX(180deg);
+            }
+            .faqs__item-list {
+                font-weight: 400;
+            }
+        }
+
+        @media(max-width: $xl) {
+            padding: 32px calc(0px + (50 - 8) * ((100vw - 320px) / (1200 - 320))) 32px calc(25px + (50 - 25) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    & &__item-list {
+        padding: 16px 0 0 50px;
+
+        @media(max-width: $xl) {
+            padding: calc(20px + (16 - 20) * ((100vw - 320px) / (1200 - 320))) 0 0 calc(0px + (50 - 0) * ((100vw - 320px) / (1200 - 320)));
+        }
+    }
+
+    
+}
