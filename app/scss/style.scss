@@ -1321,10 +1321,8 @@
         &::before {
             content: "";
             position: absolute;
-            top: 50%;
+            top: 33px;
             left: 0;
-
-            transform: translateY(-50%);
 
             width: 24px;
             height: 24px;
