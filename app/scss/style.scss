@@ -227,9 +227,51 @@
     }
 
     &__btn {
+        position: relative;
         max-width: 310px;
         height: 63px;
+        overflow: hidden;
+
+        transition: letter-spacing 0.3s;
         
+        &::before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 2px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #ffffff;
+            transform: translateX(100%);
+
+            transition: transform 0.5s ease-in-out;
+        }
+
+        &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 2px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: #ffffff;
+            transform: translateX(-100%);
+
+            transition: transform 0.5s ease-in-out;
+        }
+
+        &:hover {
+            letter-spacing: 2px;
+            color: #ffffff;
+
+            &::before,
+            &::after {
+              transform: translateX(0%);
+            }
+        }
+
         @media(max-width: $xl) {
             max-width: calc(288px + (310 - 288) * ((100vw - 320px) / (1200 - 320)));
             height: calc(49px + (63 - 49) * ((100vw - 320px) / (1200 - 320)));
@@ -454,9 +496,67 @@
         }
     }
 
-    &__btn {
-        max-width: 310px;
+    @mixin a($bcolor,
+        $url,
+        $x1,
+        $y1,
+        $bor,
+        $col) {
+        background: $bcolor;
+        mask: url($url);
+        mask-size: $x1 $y1;
+        border: $bor;
+        color: $col;
+    }
+
+    &__box {
+        position: relative;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 310px;
         height: 63px;
+        
+        border: 1px solid transparent;
+        border-radius: 8px;
+
+        overflow: hidden;
+
+        transition: border-color 0.5s;
+
+        &:hover {
+            border-color: $accent;
+        }
+    }
+
+    &__mask {
+        position: absolute;
+
+        font-weight: 500;
+        color: #000000;
+        text-transform: uppercase;
+
+        overflow: hidden;
+    }
+
+    &__btn {
+        width: 101%;
+        height: 100%;
+
+        animation: ani2 0.7s steps(22) forwards;
+
+        @include a($accent,
+        "https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png",
+        2300%,
+        100%,
+        1px solid $accent,
+        #fff);
+
+        &:hover {
+            animation: ani 0.7s steps(22) forwards;
+        }
 
         @media(max-width: $xl) {
             max-width: calc(254px + (310 - 254) * ((100vw - 320px) / (1200 - 320)));
@@ -464,6 +564,26 @@
 
         @media(max-width: $lg) {
             margin: 0 auto 35px;
+        }
+    }
+
+    @keyframes ani {
+        0% {
+         mask-position: 0 0;
+        }
+       
+        100% {
+         mask-position: 100% 0;
+        }
+    }
+
+    @keyframes ani2 {
+        0% {
+         mask-position: 100% 0;
+        }
+       
+        100% {
+         mask-position: 0 0;
         }
     }
 }
@@ -769,9 +889,72 @@
         }
     }
 
-    &__btn {
+    &__box {
+        position: relative;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
         max-width: 310px;
+        width: 100%;
         height: 63px;
+
+        border: 1px solid transparent;
+        border-radius: 8px;
+
+        overflow: hidden;
+
+        transition: border-color 0.5s;
+
+        &:hover {
+            border-color: $accent;
+        }
+    }
+
+    &__mask {
+        position: absolute;
+
+        font-weight: 500;
+        text-transform: uppercase;
+        color: #000000;
+
+        overflow: hidden;
+    }
+
+    &__btn {
+        width: 101%;
+        height: 100%;
+
+        @mixin a($bcolor,
+            $url,
+            $x1,
+            $y1,
+            $bor,
+            $col) {
+            background: $bcolor;
+            -webkit-mask: url($url);
+            mask: url($url);
+            -webkit-mask-size: $x1 $y1;
+            mask-size: $x1 $y1;
+            border: $bor;
+            color: $col;
+        }
+
+        @include a(
+            $accent,
+            "https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png",
+            3000%,
+            100%,
+            none,
+            #fff
+        );
+
+        &:hover {
+            animation: ani 0.7s steps(29) forwards;
+        }
+
+        animation: ani2 0.7s steps(29) forwards;
+
         @media(max-width: $xl) {
             max-width: calc(254px + (310 - 254) * ((100vw - 320px) / (1200 - 320)));
             font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1200 - 320)));
@@ -1184,6 +1367,17 @@
         max-width: 310px;
         height: 63px;
 
+        box-shadow: 0 0 40px 40px $accent inset, 0 0 0 0 $accent;
+
+        background: none;
+
+        transition: box-shadow 0.3s , color 0.3s;
+
+        &:hover {
+            box-shadow: 0 0 10px 0 $accent inset, 0 0 10px 4px $accent;
+            color: $accent;
+        }
+
         @media(max-width: $xl) {
             max-width: calc(254px + (310 - 254) * ((100vw - 320px) / (1200 - 320)));
         }
@@ -1468,9 +1662,34 @@
     }
 
     &__btn {
+        position: relative;
+
         max-width: 470px;
         height: 63px;
         margin-bottom: 43px;
+
+        overflow: hidden;   
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 500px;
+            
+            height: 63px;
+            width: 63px;
+            
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.5));
+
+            transition: transform 0.5s ease-in-out;
+
+            transform: translateX(-600px) skewX(-45deg);
+        }
+
+        &:hover {
+            &::before {
+                transform: translateX(0);
+            }
+        }
 
         @media(max-width: $xl) {
             margin-bottom: calc(20px + (43 - 20) * ((100vw - 320px) / (1200 - 320)));
@@ -1686,6 +1905,13 @@
 
         &:not(:last-child) {
             margin-bottom: 12px;
+        }
+    }
+
+    &__link {
+        transition: color 0.3s;
+        &:hover {
+            color: $accent;
         }
     }
 }
